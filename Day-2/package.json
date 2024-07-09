@@ -1,0 +1,25 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "This is react by shashikant",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shashikant884/React.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "shashikant",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shashikant884/React/issues"
+  },
+  "homepage": "https://github.com/shashikant884/React#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}
