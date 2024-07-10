@@ -4,6 +4,8 @@
   "description": "This is react by shashikant",
   
   "scripts": {
+    "start": "parcel index.js",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "repository": {
