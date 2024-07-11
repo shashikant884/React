@@ -1,45 +1,68 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
-// const heading = React.createElement("h1" , {id: "heading"}, "Hey there , I am from reactjs..! !! ");
-
-// const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(heading);
-
-// ReactElement(object) => hrml(browser understands)
-// const parent = React.createElement(
-//     "div" , {id : "parent"},
-//     React.createElement("div" , {id : "child"},
-//         [React.createElement("h1" , {}, "Hi am from H1 Tag iam saving this file"),
-//             React.createElement("h1" , {}, "Hi am from H2 Tag")
-//         ]    
-//     )
-// );
-
-// console.log(parent);
+import img from './images.png'
 
 
 
-// const jsxHeading = <h1 id="heading">Namaste React using jsx</h1>;
-const Title = ()=>(
-    <h1 className="container">
-        Hello React using jsx
-    </h1>
+
+const Header = ()=>(
+    <div className="header">
+        <div className="logo-container">
+            <img className="logo"
+            src={img}
+            />
+        </div>    
+            <div className="nav-items">
+                <ul>
+                    <li>Home</li>
+                    <li>About Us</li>
+                    <li>Contact Us</li>
+                    <li>Cart</li>
+                </ul>
+
+            </div>
+    </div>
 );
 
-const HeadingComponent = ()=>(
+const RestourantCard = ()=>{
+    return(
+        <div className="res-card">
+            <img className="res-logo"
+                alt="res-logo"
+                src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/gp1ityra6utvzqn6ghnv"
+            />
+
+            <h3>Meghana Foods</h3>
+            <h4>Biryani , North Indian , Asian</h4>
+            <h4>4.4 Stars</h4>
+            <h4>40 Minuts</h4>
+        </div>
+    );
+};
+
+const AppBody = ()=>{
+    return(
+        <div className="body">
+            <div className="search">Search</div>
+            <div className="res-comtainer">
+                <RestourantCard/>
+            </div>
+
+        </div>
+    )
+}
+
+const AppLayout = ()=>(
     <div id="container">
-        <Title/>
-        <h1>React functional HeadingComponent</h1>
+        <Header/>
+        <AppBody/>
     </div>
 );
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 
-// console.log(jsxHeading);
 
 
 
-// root.render(parent); 
-root.render(<HeadingComponent/>);
+root.render(<AppLayout/>);
