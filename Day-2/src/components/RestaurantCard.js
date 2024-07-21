@@ -1,16 +1,16 @@
-const RestourantCard = (props)=>{
+const RestaurantCard = (props)=>{
     const {resData} = props;
 
-    const {cloudinaryImageId,
+    const {
         name,
         cuisines,
         avgRating,
         costForTwo,
-        deliveryTime
+        sla,
 
 
 
-    } = resData?.data;
+    } = resData?.info;
     return(
         <div className="res-card">
             <img className="res-logo"
@@ -27,11 +27,11 @@ const RestourantCard = (props)=>{
             <h3>{name}</h3>
             <h4>{cuisines}</h4>
             <h4>{avgRating}</h4>
-            <h4>{costForTwo / 100}</h4>
-            <h4>{deliveryTime} minutes</h4>
+            <h4>{costForTwo}</h4>
+            <h4>{sla.slaString}</h4>
         </div>
     );
 };
 
 
-export default RestourantCard;
+export default RestaurantCard;
