@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import RestaurantCard from './RestaurantCard';
 import Shimmer from './Shimmer';
+import { Link } from 'react-router-dom';
 
 
 const Body = () => {
@@ -27,6 +28,7 @@ const Body = () => {
     );
 
     const json = await data.json();
+    
 
     console.log(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     // * optional chaining
@@ -40,8 +42,9 @@ const Body = () => {
   //   return <Shimmer />;
   // }
 
-  return(
-    <div className="body">
+  return listOfRestaurants === 0 ?
+  (<Shimmer />) :
+    (<div className="body">
       {/* <div className="search-container">
         <input type="text" placeholder="Search Food or Restaurant" />
         <button>Search</button>
@@ -92,7 +95,10 @@ const Body = () => {
         {/* // * looping through the <RestaurentCard /> components Using Array.map() method */}
 
         {filteredRestaurant.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+          <Link key={restaurant.info.id} 
+            to={"/restaurant/"+restaurant.info.id}>
+            <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+          </Link>
         ))}
       </div>
     </div>
