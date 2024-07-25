@@ -114,3 +114,8 @@
   margin: 20px;
   border-radius: 11px;
 }
+
+.user-card{
+  width: 100%;
+  border: 1px solid black;
+}
