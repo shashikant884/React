@@ -4,13 +4,18 @@ class UserClass extends React.Component{
     constructor(props){
         super(props);
         console.log(props);
+        console.log("Child constructor called");
+
 
         this.state = {
             count: 0,
             count1: 1
-        };
-        console.log("In side Constructor..")
-    } 
+        }
+    }
+
+    componentDidMount(){
+        console.log("child components did mount ");
+    }
 
     render(){
         console.log("In side rende..")
