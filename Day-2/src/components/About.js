@@ -18,7 +18,10 @@ class About extends Component{
             <div>
                 <h3>Hello i am from About page</h3>
                 <User name={"Shashikant Yadav function..."} />
-                <UserClass name ={"Shashikant YAdav classs..."}/>
+                {/* <UserClass name ={"Shashikant YAdav classs..."}/> */}
+                <UserClass />
+
+
             </div>
     
             
