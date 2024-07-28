@@ -12,8 +12,8 @@ const RestaurantCard = (props)=>{
 
     } = resData?.info;
     return(
-        <div className="res-card">
-            <img className="res-logo"
+        <div className="m-4 p-4 w-[250px] border border-solid border-black rounded-lg">
+            <img className="rounded-lg"
                 alt="res-logo"
                 src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/gp1ityra6utvzqn6ghnv" 
                 // src={
@@ -23,9 +23,9 @@ const RestaurantCard = (props)=>{
                 // }    
                 
             />
-
-            <h3>{name}</h3>
-            <h4>{cuisines}</h4>
+ 
+            <h3 className="font-bold py-4 text-lg">{name}</h3>
+            <h4>{cuisines.join(", ")}</h4>
             <h4>{avgRating}</h4>
             <h4>{costForTwo}</h4>
             <h4>{sla.slaString}</h4>

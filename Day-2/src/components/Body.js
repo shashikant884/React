@@ -58,18 +58,19 @@ const Body = () => {
         <input type="text" placeholder="Search Food or Restaurant" />
         <button>Search</button>
       </div> */}
-      <div className="filter">
-        <div className="search">
-          <input
-            type="text"
+      <div className="filter flex">
+        <div className="search m-4 p-4 ">
+          <input 
+            type="text" 
+            
             placeholder="Search a restaurant you want..."
-            className="searchBox"
+            className="border border-solid border-black rounded-lg"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           />
-          <button
+          <button className="px-4 py-0.5 bg-gray-500 m-4 rounded-lg"
             onClick={() => {
               // * Filter th restaurant cards and update the UI
               // * searchText
@@ -85,8 +86,9 @@ const Body = () => {
             Search
           </button>
         </div>
+        <div className='m-4 p-4 flex items-center '>
         <button
-          className="filter-btn"
+          className="px-4 py-0.5 bg-gray-500 rounded-lg"
           onClick={() => {
             // * Filter logic
             const filteredList = listOfRestaurants.filter(
@@ -99,8 +101,10 @@ const Body = () => {
         >
           Top Rated Restaurants
         </button>
+        </div>
+        
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap back">
         {/* // * looping through the <RestaurentCard /> components Using Array.map() method */}
 
         {filteredRestaurant.map((restaurant) => (
