@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import RestaurantCard from './RestaurantCard';
 import Shimmer from './Shimmer';
 import { Link } from 'react-router-dom';
-
+import useOnlineStatus from "../../utils/useOnlineStatus";
 
 const Body = () => {
   // * React Hook -> A normal JavaScript function which is given to us by React (or) Normal JS utility functions
@@ -16,7 +16,7 @@ const Body = () => {
   const [searchText, setSearchText] = useState('');
 
   // * Whenever a state variable updates or changes, react triggers a reconciliation cycle(re-renders the component)
-  console.log('Body rendered');
+  // console.log('Body rendered');
 
   useEffect(() => {
     fetchData();
@@ -41,6 +41,15 @@ const Body = () => {
   // if (listOfRestaurants.length === 0) {
   //   return <Shimmer />;
   // }
+  
+  const onlineStatus = useOnlineStatus();
+
+  if (onlineStatus === false)
+    return (
+      <h1 style={{ textAlign: 'center', marginTop: '100px' }}>
+        Looks like you're offline! Please check your internet connection
+      </h1>
+    );
 
   return listOfRestaurants === 0 ?
   (<Shimmer />) :
