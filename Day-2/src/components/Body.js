@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import RestaurantCard from './RestaurantCard';
+import RestaurantCard ,{withPromtedeLabel} from './RestaurantCard';
 import Shimmer from './Shimmer';
 import { Link } from 'react-router-dom';
 import useOnlineStatus from "../../utils/useOnlineStatus";
@@ -15,6 +15,7 @@ const Body = () => {
 
   const [searchText, setSearchText] = useState('');
 
+  const RestaurantCardPromoted = withPromtedeLabel(RestaurantCard);
   // * Whenever a state variable updates or changes, react triggers a reconciliation cycle(re-renders the component)
   // console.log('Body rendered');
 
@@ -29,7 +30,7 @@ const Body = () => {
 
     const json = await data.json();
     
-
+    console.log(listOfRestaurants);
     console.log(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     // * optional chaining
     // setListOfRestaurants(json.data.cards[2].data.data.cards);
@@ -110,12 +111,20 @@ const Body = () => {
         {filteredRestaurant.map((restaurant) => (
           <Link key={restaurant.info.id} 
             to={"/restaurant/"+restaurant.info.id}>
-            <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+
+            {restaurant.info.veg ? (
+              <RestaurantCardPromoted resData={restaurant} />
+            ) : (
+              <RestaurantCard resData={restaurant}/>
+            )}
           </Link>
         ))}
       </div>
     </div>
   );
 };
+
+
+
 
 export default Body;
