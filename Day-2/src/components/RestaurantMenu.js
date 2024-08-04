@@ -11,6 +11,8 @@ const RestaurantMenu = ()=>{
 
     const [resInfo, setResInfo] = useState(null);
 
+    const [showIndex , setShowIndex] = useState(1);
+
     const {resId} = useParams();
     // console.log(resId);
 
@@ -31,6 +33,7 @@ const RestaurantMenu = ()=>{
     if(resInfo === null) return  <Shimmer />;
 
     const {
+
         name,
         cuisines,
         costForTwoMessage,
@@ -60,13 +63,27 @@ const RestaurantMenu = ()=>{
             <h3 className="font-bold text-lg"> {cuisines.join(', ')}</h3>
             <p> {costForTwoMessage} - Avg rating {avgRating}</p>
             
-            {
-                categories.map((category)=>(
+            
+                {categories.map((category , index)=>(
                     <RestaurantCategory 
                     key={category?.card?.card.title}
-                    data={category?.card?.card}/>
-                ))
-           }
+                    data={category?.card?.card}
+                    // showIndexs = {index === showIndex ? true : false}
+                    // setShowIndex={()=>{
+                    //     setShowIndex(index)
+                    // }}
+                    showItems={index === showIndex ? true : false}
+                    setShowIndex={()=>{
+                            setShowIndex(index)
+                        }}
+
+
+
+                    />
+
+                    
+                ))}
+           
 
 
               

@@ -2,14 +2,18 @@
 import { useState } from "react";
 import ItemList from "./ItemList";
 
-const RestaurantCategory = ({data })=>{
+const RestaurantCategory = ({data , showItems , setShowIndex })=>{
 
-    const [showItems , setShowItems]= useState(false);
+    // const [showItems , setShowItems]= useState(false);
     
-    const HandleClick = ()=>{
-        setShowItems(!showItems); 
-    };
+    // const HandleClick = ()=>{
+    //     setShowItems(!showItems); 
+    // };
     // console.log(data)
+
+    const HandleClick = ()=>{
+        setShowIndex();
+    }
 
 
 
