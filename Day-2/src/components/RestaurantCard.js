@@ -8,9 +8,6 @@ const RestaurantCard = (props)=>{
         avgRating,
         costForTwo,
         sla,
-
-
-
     } = resData?.info;
     return(
         <div className="m-4 p-4 w-[250px] border border-solid border-black rounded-lg bg-gray-100 hover:bg-gray-200">
@@ -41,7 +38,7 @@ export const withPromtedeLabel = (RestaurantCard)=>{
     return(props)=>{
       return(
         <div>
-          <label className="absolute bg m-2 p-2 rounded-lg" >🟢</label>
+          <label className="absolute bg m-2 p-2 rounded-lg bg-black text-white" >Promoted</label>
           <RestaurantCard {...props} /> 
         </div>
       );

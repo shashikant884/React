@@ -17,7 +17,6 @@ const Body = () => {
 
   const RestaurantCardPromoted = withPromtedeLabel(RestaurantCard);
   // * Whenever a state variable updates or changes, react triggers a reconciliation cycle(re-renders the component)
-  // console.log('Body rendered');
 
   useEffect(() => {
     fetchData();
@@ -29,13 +28,16 @@ const Body = () => {
     );
 
     const json = await data.json();
-    
-    console.log(listOfRestaurants);
-    console.log(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    // console.log(json)
+
+    // console.log(listOfRestaurants);
+    // console.log(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     // * optional chaining
     // setListOfRestaurants(json.data.cards[2].data.data.cards);
     setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     setFilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    console.log('Body rendered' + listOfRestaurants);
+
   };
 
   // * Conditional Rendering

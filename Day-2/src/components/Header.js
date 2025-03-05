@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { LOGO_URL } from "../../utils/constants";
 import useOnlineStatus from "../../utils/useOnlineStatus";
+import { useSelector } from "react-redux";
 
 
 
@@ -13,6 +14,8 @@ const Header = ()=>{
     useEffect(()=>{
         console.log("useEffect called");
     });
+
+    const cartItems = useSelector((store)=> store.cart.items);
 
     return(
         
@@ -41,7 +44,7 @@ const Header = ()=>{
                         <Link to="/grocery">Grocery</Link>
                     </li>
                     <li className="p-4">
-                        <Link to="/cart">Cart</Link>
+                        <Link to="/cart">Cart - ({cartItems.length})items</Link>
                     </li>
                     <button className="loginBtn" onClick={()=>{
                         // btnName = 'Logout';
